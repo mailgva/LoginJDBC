@@ -1,13 +1,25 @@
-<html xmlns:th="http://www.thymeleaf.org"
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Please sign in</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
 <body>
-<h2 th:inline="text">Welcome, "[[${#httpServletRequest.remoteUser}]]"</h2>
-<h2 th:text="${#authentication.name}"></h2>
-<h2 sec:authorize="isAuthenticated()">
-    Authenticated as "<span sec:authentication="name"></span>"</h2>
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="LOGOUT"/>
-</form>
+<div class="container">
+    <h2 th:inline="text">Welcome, "[[${#httpServletRequest.remoteUser}]]"</h2>
+    <h2 th:text="${#authentication.name}"></h2>
+    <h2 sec:authorize="isAuthenticated()">
+        Authenticated as "<span sec:authentication="name"></span>"</h2>
+
+    <form class="form-signin" th:action="@{/logout}" method="post">
+        <input class="btn btn-lg btn-primary btn-block" type="submit" value="LOGOUT"/>
+    </form>
+</div>
 </body>
 </html>
