@@ -1,0 +1,13 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<body>
+<h2 th:inline="text">Welcome, "[[${#httpServletRequest.remoteUser}]]"</h2>
+<h2 th:text="${#authentication.name}"></h2>
+<h2 sec:authorize="isAuthenticated()">
+    Authenticated as "<span sec:authentication="name"></span>"</h2>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="LOGOUT"/>
+</form>
+</body>
+</html>

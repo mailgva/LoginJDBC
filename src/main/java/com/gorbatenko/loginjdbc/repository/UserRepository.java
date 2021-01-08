@@ -1,0 +1,9 @@
+package com.gorbatenko.loginjdbc.repository;
+
+import com.gorbatenko.loginjdbc.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    User findByUsername(String username);
+}
